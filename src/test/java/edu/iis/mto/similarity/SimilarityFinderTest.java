@@ -44,4 +44,15 @@ public class SimilarityFinderTest {
 
     }
 
+    @Test public void jaccardIndexForTheSameSets() {
+
+        int[] setA = {1, 2, 3};
+        int[] setB = {1, 2, 3};
+
+        double result = similarityFinder.calculateJackardSimilarity(setA, setB);
+
+        assertThat(result, Is.is(1.0));
+
+    }
+
 }
