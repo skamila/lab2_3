@@ -66,4 +66,14 @@ public class SimilarityFinderTest {
 
     }
 
+    @Test public void jaccardIndexForVariousSets() {
+
+        int[] setA = {1, 2, 3};
+        int[] setB = {2, 2, 2};
+
+        double result = similarityFinder.calculateJackardSimilarity(setA, setB);
+
+        assertThat(result, Is.is(0.2));
+
+    }
 }
