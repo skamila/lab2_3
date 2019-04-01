@@ -62,4 +62,15 @@ public class SimilarityFinderTest {
         assertThat(result, Is.is(0.2));
 
     }
+
+    @Test public void amountOfMethodSearchCall() {
+
+        int[] setA = {1, 2, 3};
+        int[] setB = {2, 2, 2};
+
+        similarityFinder.calculateJackardSimilarity(setA, setB);
+
+        assertThat(sequenceSearcherDubler.getCounter(), Is.is(3));
+    }
+
 }
