@@ -5,28 +5,19 @@ import edu.iis.mto.search.SequenceSearcher;
 
 import static edu.iis.mto.search.SearchResult.builder;
 
-public class SequenceSearcherDubler implements SequenceSearcher {
+public class SequenceSearcherMock implements SequenceSearcher {
 
     private int counter;
 
-    public SequenceSearcherDubler() {
+    public SequenceSearcherMock() {
         counter = 0;
     }
 
     @Override public SearchResult search(int key, int[] seq) {
 
-        SearchResult.Builder builder = builder();
         counter++;
 
-        for (int i = 0; i < seq.length; i++) {
-            if (seq[i] == key) {
-                builder.withPosition(i);
-                builder.withFound(true);
-                return builder.build();
-            }
-        }
-
-        builder.withFound(false);
+        SearchResult.Builder builder = builder();
         return builder.build();
     }
 
