@@ -5,11 +5,11 @@ import edu.iis.mto.search.SequenceSearcher;
 
 import static edu.iis.mto.search.SearchResult.builder;
 
-public class SequenceSearcherMock implements SequenceSearcher {
+public class SequenceSearcherMockCallMethodCounter implements SequenceSearcher {
 
     private int counter;
 
-    public SequenceSearcherMock() {
+    public SequenceSearcherMockCallMethodCounter() {
         counter = 0;
     }
 

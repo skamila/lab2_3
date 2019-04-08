@@ -62,7 +62,7 @@ public class SimilarityFinderTest {
 
     @Test public void amountOfMethodSearchCall() {
 
-        SequenceSearcherMock sequenceSearcher = new SequenceSearcherMock();
+        SequenceSearcherMockCallMethodCounter sequenceSearcher = new SequenceSearcherMockCallMethodCounter();
         SimilarityFinder similarityFinder = new SimilarityFinder(sequenceSearcher);
 
         int[] setA = {1, 2, 3};
@@ -71,6 +71,20 @@ public class SimilarityFinderTest {
         similarityFinder.calculateJackardSimilarity(setA, setB);
 
         assertThat(sequenceSearcher.getCounter(), Is.is(3));
+    }
+
+    @Test public void correctParameters() {
+
+        int[] setA = {1, 2, 3};
+        int[] setB = {2, 2, 2};
+
+        SequenceSearcherMockCorrectParameters sequenceSearcher = new SequenceSearcherMockCorrectParameters(setB);
+        SimilarityFinder similarityFinder = new SimilarityFinder(sequenceSearcher);
+
+        similarityFinder.calculateJackardSimilarity(setA, setB);
+
+        assertThat(sequenceSearcher.getSeq(), Is.is(setB));
+
     }
 
 }
